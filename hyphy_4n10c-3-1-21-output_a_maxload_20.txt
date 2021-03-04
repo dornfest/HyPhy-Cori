@@ -1,0 +1,237 @@
+note: 3/4/21 ran with sbatch
+
+# %%sbatch
+# #!/bin/bash
+# #SBATCH --clusters=escori
+# #SBATCH -A m3058
+# #SBATCH -C gpu
+# #SBATCH -q regular
+# #SBATCH -t 2:30:00
+# #SBATCH -n 4 #GPUs see: https://docs-dev.nersc.gov/cgpu/examples/
+# #SBATCH --ntasks-per-node=1
+# #SBATCH -c 10
+# #SBATCH --gpus-per-task=1
+# whoami
+# touch /global/cscratch1/sd/dornfest/ben/dummyfile
+# module load cgpu
+# module load python
+# module load tensorflow/intel-1.15.0-py37 #this must be included.
+# export SLURM_CPU_BIND="cores"
+# python /global/cscratch1/sd/dornfest/ben/HyPhy_3-1-21.py  &> hyphy_4n10c-3-1-21-output_a_maxload_20.txt
+--------------------end of note----------------------------
+2021-03-02 18:23:15.484929: I tensorflow/core/platform/cpu_feature_guard.cc:145] This TensorFlow binary is optimized with Intel(R) MKL-DNN to use the following CPU instructions in performance critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+To enable them in non-MKL-DNN operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-03-02 18:23:15.503243: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2400000000 Hz
+2021-03-02 18:23:15.506063: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5555581dc880 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-03-02 18:23:15.506273: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:From /usr/common/software/tensorflow/intel-tensorflow/1.15.0-py37/lib/python3.7/site-packages/tensorflow_core/python/ops/resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+WARNING:tensorflow:From /usr/common/software/tensorflow/intel-tensorflow/1.15.0-py37/lib/python3.7/site-packages/tensorflow_core/python/keras/backend.py:4277: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:OMP_NUM_THREADS is no longer used by the default Keras config. To configure the number of threads, use tf.config.threading APIs.
+OMP: Info #154: KMP_AFFINITY: Initial OS proc set respected: 0,6-9,40,46-49
+OMP: Info #213: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #276: KMP_AFFINITY: Affinity capable, using global cpuid leaf 11 info
+OMP: Info #156: KMP_AFFINITY: 10 available OS procs
+OMP: Info #157: KMP_AFFINITY: Uniform topology
+OMP: Info #191: KMP_AFFINITY: 1 socket x 5 cores/socket x 2 threads/core (5 total cores)
+OMP: Info #215: KMP_AFFINITY: OS proc to physical thread map:
+OMP: Info #171: KMP_AFFINITY: OS proc 0 maps to socket 0 core 0 thread 0 
+OMP: Info #171: KMP_AFFINITY: OS proc 40 maps to socket 0 core 0 thread 1 
+OMP: Info #171: KMP_AFFINITY: OS proc 6 maps to socket 0 core 9 thread 0 
+OMP: Info #171: KMP_AFFINITY: OS proc 46 maps to socket 0 core 9 thread 1 
+OMP: Info #171: KMP_AFFINITY: OS proc 7 maps to socket 0 core 10 thread 0 
+OMP: Info #171: KMP_AFFINITY: OS proc 47 maps to socket 0 core 10 thread 1 
+OMP: Info #171: KMP_AFFINITY: OS proc 8 maps to socket 0 core 11 thread 0 
+OMP: Info #171: KMP_AFFINITY: OS proc 48 maps to socket 0 core 11 thread 1 
+OMP: Info #171: KMP_AFFINITY: OS proc 9 maps to socket 0 core 12 thread 0 
+OMP: Info #171: KMP_AFFINITY: OS proc 49 maps to socket 0 core 12 thread 1 
+OMP: Info #251: KMP_AFFINITY: pid 55044 tid 55044 thread 0 bound to OS proc set 0
+2021-03-02 18:47:18.179900: I tensorflow/core/common_runtime/process_util.cc:115] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
+OMP: Info #251: KMP_AFFINITY: pid 55044 tid 19685 thread 1 bound to OS proc set 6
+OMP: Info #251: KMP_AFFINITY: pid 55044 tid 19684 thread 2 bound to OS proc set 7
+OMP: Info #251: KMP_AFFINITY: pid 55044 tid 36178 thread 3 bound to OS proc set 8
+OMP: Info #251: KMP_AFFINITY: pid 55044 tid 36179 thread 4 bound to OS proc set 9
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 1235535189573950874
+, name: "/device:XLA_CPU:0"
+device_type: "XLA_CPU"
+memory_limit: 17179869184
+locality {
+}
+incarnation: 8613544712377971521
+physical_device_desc: "device: XLA_CPU device"
+]
+[14  9 30  4 23 36 24 17 40 33 28  6 34 21  0 37 15 29  1  3 32 25 18 22
+ 26  2 31  8 12  7 19 20 27 13 11 39  5 35 16 10 38]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_0.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_0.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_11.npy']
+[37 33 19 18 10 35 31 15 39  3  9 28 25  1  5 38 26 13  0 40  2  6 16 24
+ 29 17 30 21 32  7 14  8 36 22 20 34 23 27 11 12  4]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_0.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_9.npy']
+max num = 20
+time to load data 0:15:31.865915
+Model: "model"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+DM_field (InputLayer)           [(None, 3, 64, 64, 6 0                                            
+__________________________________________________________________________________________________
+reshape (Reshape)               (None, 3, 64, 64, 64 0           DM_field[0][0]                   
+__________________________________________________________________________________________________
+conv3d (Conv3D)                 (None, 4, 64, 64, 64 328         reshape[0][0]                    
+__________________________________________________________________________________________________
+tau_field (InputLayer)          [(None, 3, 64, 64, 6 0                                            
+__________________________________________________________________________________________________
+conv3d_1 (Conv3D)               (None, 5, 64, 64, 64 545         conv3d[0][0]                     
+__________________________________________________________________________________________________
+reshape_1 (Reshape)             (None, 3, 64, 64, 64 0           tau_field[0][0]                  
+__________________________________________________________________________________________________
+conv3d_2 (Conv3D)               (None, 6, 64, 64, 64 246         conv3d_1[0][0]                   
+__________________________________________________________________________________________________
+conv3d_9 (Conv3D)               (None, 3, 64, 64, 64 75          reshape_1[0][0]                  
+__________________________________________________________________________________________________
+conv3d_3 (Conv3D)               (None, 6, 64, 64, 64 978         conv3d_2[0][0]                   
+__________________________________________________________________________________________________
+conv3d_10 (Conv3D)              (None, 4, 64, 64, 64 328         conv3d_9[0][0]                   
+__________________________________________________________________________________________________
+concatenate (Concatenate)       (None, 10, 64, 64, 6 0           conv3d_3[0][0]                   
+                                                                 conv3d_10[0][0]                  
+__________________________________________________________________________________________________
+conv3d_11 (Conv3D)              (None, 6, 64, 64, 64 3846        concatenate[0][0]                
+__________________________________________________________________________________________________
+max_pooling3d (MaxPooling3D)    (None, 6, 32, 32, 32 0           conv3d_3[0][0]                   
+__________________________________________________________________________________________________
+conv3d_12 (Conv3D)              (None, 8, 64, 64, 64 1304        conv3d_11[0][0]                  
+__________________________________________________________________________________________________
+conv3d_4 (Conv3D)               (None, 8, 32, 32, 32 1304        max_pooling3d[0][0]              
+__________________________________________________________________________________________________
+max_pooling3d_4 (MaxPooling3D)  (None, 8, 32, 32, 32 0           conv3d_12[0][0]                  
+__________________________________________________________________________________________________
+concatenate_1 (Concatenate)     (None, 16, 32, 32, 3 0           conv3d_4[0][0]                   
+                                                                 max_pooling3d_4[0][0]            
+__________________________________________________________________________________________________
+conv3d_13 (Conv3D)              (None, 20, 32, 32, 3 40020       concatenate_1[0][0]              
+__________________________________________________________________________________________________
+max_pooling3d_1 (MaxPooling3D)  (None, 8, 16, 16, 16 0           conv3d_4[0][0]                   
+__________________________________________________________________________________________________
+conv3d_14 (Conv3D)              (None, 30, 32, 32, 3 16230       conv3d_13[0][0]                  
+__________________________________________________________________________________________________
+conv3d_5 (Conv3D)               (None, 20, 16, 16, 1 4340        max_pooling3d_1[0][0]            
+__________________________________________________________________________________________________
+batch_normalization (BatchNorma (None, 30, 32, 32, 3 128         conv3d_14[0][0]                  
+__________________________________________________________________________________________________
+conv3d_6 (Conv3D)               (None, 30, 16, 16, 1 16230       conv3d_5[0][0]                   
+__________________________________________________________________________________________________
+max_pooling3d_5 (MaxPooling3D)  (None, 30, 16, 16, 1 0           batch_normalization[0][0]        
+__________________________________________________________________________________________________
+concatenate_2 (Concatenate)     (None, 60, 16, 16, 1 0           conv3d_6[0][0]                   
+                                                                 max_pooling3d_5[0][0]            
+__________________________________________________________________________________________________
+max_pooling3d_2 (MaxPooling3D)  (None, 30, 8, 8, 8)  0           conv3d_6[0][0]                   
+__________________________________________________________________________________________________
+conv3d_15 (Conv3D)              (None, 30, 16, 16, 1 48630       concatenate_2[0][0]              
+__________________________________________________________________________________________________
+conv3d_7 (Conv3D)               (None, 30, 8, 8, 8)  7230        max_pooling3d_2[0][0]            
+__________________________________________________________________________________________________
+max_pooling3d_6 (MaxPooling3D)  (None, 30, 8, 8, 8)  0           conv3d_15[0][0]                  
+__________________________________________________________________________________________________
+conv3d_8 (Conv3D)               (None, 30, 8, 8, 8)  7230        conv3d_7[0][0]                   
+__________________________________________________________________________________________________
+max_pooling3d_7 (MaxPooling3D)  (None, 30, 4, 4, 4)  0           max_pooling3d_6[0][0]            
+__________________________________________________________________________________________________
+max_pooling3d_3 (MaxPooling3D)  (None, 30, 4, 4, 4)  0           conv3d_8[0][0]                   
+__________________________________________________________________________________________________
+concatenate_3 (Concatenate)     (None, 30, 4, 4, 8)  0           max_pooling3d_7[0][0]            
+                                                                 max_pooling3d_3[0][0]            
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 3840)         0           concatenate_3[0][0]              
+__________________________________________________________________________________________________
+dense (Dense)                   (None, 128)          491648      flatten[0][0]                    
+__________________________________________________________________________________________________
+dropout (Dropout)               (None, 128)          0           dense[0][0]                      
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 64)           8256        dropout[0][0]                    
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 27)           1755        dense_1[0][0]                    
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 27)           1755        dense_1[0][0]                    
+__________________________________________________________________________________________________
+lambda (Lambda)                 (None, 27)           0           dense_2[0][0]                    
+                                                                 dense_3[0][0]                    
+__________________________________________________________________________________________________
+lambda_1 (Lambda)               (None, 27, 4, 4, 4)  0           lambda[0][0]                     
+__________________________________________________________________________________________________
+concatenate_4 (Concatenate)     (None, 57, 4, 4, 4)  0           lambda_1[0][0]                   
+                                                                 max_pooling3d_3[0][0]            
+__________________________________________________________________________________________________
+conv3d_transpose (Conv3DTranspo (None, 16, 4, 4, 4)  197008      concatenate_4[0][0]              
+__________________________________________________________________________________________________
+up_sampling3d (UpSampling3D)    (None, 16, 8, 8, 8)  0           conv3d_transpose[0][0]           
+__________________________________________________________________________________________________
+conv3d_17 (Conv3D)              (None, 16, 8, 8, 8)  6928        up_sampling3d[0][0]              
+__________________________________________________________________________________________________
+up_sampling3d_1 (UpSampling3D)  (None, 16, 16, 16, 1 0           conv3d_17[0][0]                  
+__________________________________________________________________________________________________
+concatenate_5 (Concatenate)     (None, 46, 16, 16, 1 0           up_sampling3d_1[0][0]            
+                                                                 conv3d_6[0][0]                   
+__________________________________________________________________________________________________
+conv3d_transpose_1 (Conv3DTrans (None, 28, 16, 16, 1 34804       concatenate_5[0][0]              
+__________________________________________________________________________________________________
+conv3d_18 (Conv3D)              (None, 28, 16, 16, 1 6300        conv3d_transpose_1[0][0]         
+__________________________________________________________________________________________________
+up_sampling3d_2 (UpSampling3D)  (None, 28, 32, 32, 3 0           conv3d_18[0][0]                  
+__________________________________________________________________________________________________
+concatenate_6 (Concatenate)     (None, 36, 32, 32, 3 0           up_sampling3d_2[0][0]            
+                                                                 conv3d_4[0][0]                   
+__________________________________________________________________________________________________
+conv3d_transpose_3 (Conv3DTrans (None, 24, 32, 32, 3 888         concatenate_6[0][0]              
+__________________________________________________________________________________________________
+conv3d_19 (Conv3D)              (None, 24, 32, 32, 3 4632        conv3d_transpose_3[0][0]         
+__________________________________________________________________________________________________
+up_sampling3d_3 (UpSampling3D)  (None, 24, 64, 64, 6 0           conv3d_19[0][0]                  
+__________________________________________________________________________________________________
+concatenate_7 (Concatenate)     (None, 30, 64, 64, 6 0           up_sampling3d_3[0][0]            
+                                                                 conv3d_3[0][0]                   
+__________________________________________________________________________________________________
+conv3d_20 (Conv3D)              (None, 24, 64, 64, 6 744         concatenate_7[0][0]              
+__________________________________________________________________________________________________
+conv3d_21 (Conv3D)              (None, 8, 64, 64, 64 24008       conv3d_20[0][0]                  
+__________________________________________________________________________________________________
+conv3d_22 (Conv3D)              (None, 8, 64, 64, 64 1736        conv3d_21[0][0]                  
+__________________________________________________________________________________________________
+conv3d_23 (Conv3D)              (None, 8, 64, 64, 64 520         conv3d_22[0][0]                  
+__________________________________________________________________________________________________
+conv3d_24 (Conv3D)              (None, 8, 64, 64, 64 1736        conv3d_23[0][0]                  
+__________________________________________________________________________________________________
+conv3d_25 (Conv3D)              (None, 3, 64, 64, 64 651         conv3d_24[0][0]                  
+==================================================================================================
+Total params: 932,361
+Trainable params: 932,297
+Non-trainable params: 64
+__________________________________________________________________________________________________
+[19 39 11 33 37  6 16 13 38 23 36 32  1 15  3  4 20 31 35 14 28  2  9 10
+ 29  7 18 24 27 30 34 22 26 25 21 40  8 17  0 12  5]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_0.npy']
+[32 34 14 40 20 15 39 24  2 18 16 25 29  3 26 37 30 10 17  1  8 12 19 11
+ 27 33 22 31  5  0 23  9 13  6 28 36 35  7  4 38 21]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_0.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_1.npy']
+Epoch 1/2
+[39 19 38 32  4 37 28 25  9  7  8 18  1  6 35 30 34 10  5 17 40 27 31 21
+ 23 24 36  2 26 33 14 22  0 11 13  3 12 20 16 15 29]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_12.npy']
+1/5 [=====>........................] - ETA: 42:40 - loss: 1329600.2500 - kl_loss: 72.2083 - rec_loss: 1329528.1250[10 18 38 26 24 25 27  2 32  6 28 16 37  8 31 12 11  3  4 35 36 19 23 17
+ 30  5 20 21 29  9 22 34 33  1 13  7  0 15 40 39 14]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_0.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_4.npy']
+2/5 [===========>..................] - ETA: 1:13:28 - loss: 1279049.0625 - kl_loss: 163.8761 - rec_loss: 1278885.2500[13  7 23 38 31 12 35 29 21  4 20 18  9 22  6 11 32 25 10 28 33  5 24 17
+ 40 16 39  3 27 19 14 30  2  0  8 26 36 15  1 34 37]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_1.npy']
+3/5 [=================>............] - ETA: 55:32 - loss: 1283517.5417 - kl_loss: 3561.2571 - rec_loss: 1279956.3750 [24  2 23 17 13  9 18 31 19  6 27 21  0 25 22 28 26 16 34  7 39 30  3 10
+ 29 38 15 37 35 12 14 36  8 11 40 32 20 33  4  5  1]
+['/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_7.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_10.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_6.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_13.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_12.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_2.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_0.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_4.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_0.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_8.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_5.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_1.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_9.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z3.0_11.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z4.0_3.npy', '/global/cscratch1/sd/dornfest/ben/samples/samplesx_64_z2.4_3.npy']
+4/5 [=======================>......] - ETA: 29:23 - loss: 1337222.4375 - kl_loss: 56393.1680 - rec_loss: 1280829.2500
